@@ -8,4 +8,6 @@ Functions -
 2)Register user can create post
 3)User is allowed to see Products available
 
+Models has been registered in admin dashboard
+
 
