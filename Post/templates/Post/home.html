@@ -1,0 +1,63 @@
+{% extends 'Post/base.html' %}
+
+{% block title %}
+Home
+
+{% endblock %}
+
+
+{% block body %}
+
+<style>
+    .welcome{
+        display:flex;
+        text-align:center;
+        justify-content:center;
+    }
+    .posting{
+        display:flex;
+        text-align:center;
+        justify-content:center;
+        flex-direction:column;
+    }
+    .allpost{
+        display:flex;
+        text-align:center;
+        justify-content:center;
+        flex-direction:column;
+    }
+</style>
+<div class="welcome mx-2 my-2">
+    {% if user %}
+    <h2>Welcome <b>{{user}}</b></h2>
+    {% else %}
+    <h2>Please Login in <a href="{% url 'login' %}">Login</a></h2>
+    {% endif %}
+</div>
+<div class="posting my-4">
+    <form method="post" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div class="allpost my-4">
+
+    {% if post %}
+        {% for p in post %}
+        <div class="card">
+            <h5 class="card-header">Post By - {{p.user}}</h5>
+            <div class="card-body">
+                <h2>{{p}}</h2>
+            </div>
+          </div>
+            
+            <br>
+        {% endfor %}
+    {% else %}
+        <h1>No Post </h1>
+    {% endif %}
+</div>
+
+{% endblock %}

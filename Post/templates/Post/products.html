@@ -1,0 +1,40 @@
+{% extends 'Post/base.html' %}
+
+{% block title %}
+ALL Products
+{% endblock %}
+
+{% block body %}
+<style>
+    .all_product{
+        display:flex;flex-wrap:wrap;justify-content:space-between;
+    }
+</style>
+<div style="display:flex;justify-content:center;text-align:center;">
+    <h1>All Products</h1>
+    
+</div>
+
+<div><hr></div>
+
+<div class="all_product">
+    {% if product %}
+        {% for p in product %}
+        <div class="card mx-2 my-2" style="width:400px;">
+            <h2 class="card-header">{{p.name}}</h2>
+            <div class="card-body">
+              <h6>Weight:<b>{{p.weight}} grams</b></h6><br>
+              <h6>Price:<b>Rs{{p.price}}</b></h6><br>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+          </div>
+
+        {% endfor %}
+
+    {% else %}
+
+    {% endif %}
+</div>
+
+
+{% endblock %}
