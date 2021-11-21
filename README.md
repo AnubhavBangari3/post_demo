@@ -2,7 +2,7 @@
 # post_demo
 This project consist of two apps - 1) Post and  2) Product
 
-##two different databases for Post and Product are also added
+Two different databases for Post and Product are also added.
 
 Functions -
 
