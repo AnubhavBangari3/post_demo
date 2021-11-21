@@ -26,7 +26,7 @@ def home(request):
             
         else:
             messages.info(request,"Something went wrong")
-    post=Post.objects.all()
+    post=Post.objects.using("post_db").all()
     context={
         'form':form,
         'post':post

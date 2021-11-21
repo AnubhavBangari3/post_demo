@@ -77,8 +77,13 @@ WSGI_APPLICATION = 'Main.wsgi.application'
 
 DATABASES = {
     'default': {
+        
+    },
+    'post_db':{'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'post_db.sqlite3',},
+    'product_db':{
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'product_db.sqlite3',
     }
 }
 
@@ -127,3 +132,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = 'login'
+
+
+DATABASE_ROUTERS = ['routers.db_routers.AuthRouter','routers.db_routers.AuthRouter2']
